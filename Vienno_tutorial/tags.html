@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>Tags</title>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+
+<body>
+  <p>This is a paragraph</p>
+<!-- Use the d3.select function -->
+  <script>
+    d3.select("p").text("This paragraph was overwritten");
+    d3.select("body")
+      .append("p")
+      .style("color", "red")
+      // .attr changes attr of tags eg src
+      .text("This paragraph was appended to the body");
+
+    // Add d3 object to console
+    console.log(d3)
+  </script>
+
+</body>
+</html>
