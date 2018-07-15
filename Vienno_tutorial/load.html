@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+
+<body>
+<!--
+python3 -m http.server
+-->
+  <script>
+    // call json method then run callback function
+    d3.json("mydata.csv", function(data){
+      //code to run on data load
+      var canvas = d3.select("body").append("svg")
+        .attr("width", 500)
+        .attr("height", 500)
+
+      canvas.selectAll("rect")
+        .data(data)
+        .enter()
+          .append("rect")
+          .attr("width", function(d){
+            return d.age * 10
+          })
+          .attr("height", 50)
+          .attr("y", function(d, i){
+            return i * 50
+          })
+          .attr("fill", "blue")
+
+    });
+
+  </script>
+
+</body>
+</html>
